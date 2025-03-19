@@ -677,6 +677,8 @@ main {
   background: var(--bg-gradient-onyx);
   border-radius: 14px;
   box-shadow: var(--shadow-1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 5; /* Add z-index to ensure it stays on top */
 }
 
 .testimonials-item-title { margin-bottom: 7px; }
@@ -729,7 +731,7 @@ main {
 
 /* Animate avatar box on hover */
 .testimonials-item .content-card:hover .testimonials-avatar-box {
-  transform: translate(15px, -25px) scale(1.1);
+  transform: translate(15px, -28px) scale(1.05); /* Smaller scale and less vertical movement */
   box-shadow: 0 5px 15px rgba(100, 180, 255, 0.3);
 }
 
