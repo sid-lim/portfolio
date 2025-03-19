@@ -672,18 +672,22 @@ main {
 
 .testimonials-avatar-box {
   position: absolute;
-  top: 0;
-  left: 0;
-  transform: translate(15px, -25px);
+  top: -30px; /* Position it higher above the card */
+  left: 20px;
+  transform: none; /* Remove any transform that might cause issues */
   background: var(--bg-gradient-onyx);
   border-radius: 14px;
   box-shadow: var(--shadow-1);
-  z-index: 10; /* Higher z-index to ensure it's above everything */
-  transition: box-shadow 0.3s ease; /* Only animate the shadow, not the position */
-  pointer-events: none; /* This makes the avatar ignore mouse events */
+  z-index: 10;
+  transition: box-shadow 0.3s ease;
 }
 
-.testimonials-item-title { margin-bottom: 7px; }
+.testimonials-item-title {
+  margin-top: 5px; /* Add some space at the top */
+  margin-bottom: 7px;
+  padding-left: 0; /* Reset any left padding */
+  margin-left: 0; /* Reset left margin, we'll adjust it below */
+}
 
 .testimonials-text {
   color: var(--light-gray);
@@ -701,7 +705,7 @@ main {
 .testimonials-item .content-card {
   position: relative;
   background: var(--border-gradient-onyx);
-  padding: 20px;
+  padding: 30px 20px 20px; /* Increase top padding substantially */
   border-radius: 14px;
   box-shadow: var(--shadow-2);
   cursor: pointer;
@@ -710,6 +714,7 @@ main {
   padding-top: 55px; /* Provide more space for the avatar */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition */
   transform-origin: center bottom;
+  margin-top: 30px; /* Add margin at the top to create space for the avatar */
 }
 
 /* Hover effect for testimonial cards */
