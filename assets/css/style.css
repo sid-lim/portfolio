@@ -693,6 +693,45 @@ main {
   overflow: hidden;
 }
 
+/* Add transitions to testimonial items */
+.testimonials-item .content-card {
+  position: relative;
+  background: var(--border-gradient-onyx);
+  padding: 20px;
+  padding-top: 45px;
+  border-radius: 14px;
+  box-shadow: var(--shadow-2);
+  cursor: pointer;
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition */
+}
+
+/* Hover effect for testimonial cards */
+.testimonials-item .content-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(100, 180, 255, 0.2);
+}
+
+/* Add transition to the before pseudo-element */
+.testimonials-item .content-card::before {
+  transition: background 0.3s ease;
+}
+
+/* Change background on hover */
+.testimonials-item .content-card:hover::before {
+  background: linear-gradient(135deg, hsla(210, 100%, 65%, 0.1) 0%, hsla(210, 100%, 65%, 0) 59.86%), var(--bg-gradient-jet);
+}
+
+/* Add transition to avatar box */
+.testimonials-avatar-box {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Animate avatar box on hover */
+.testimonials-item .content-card:hover .testimonials-avatar-box {
+  transform: translate(15px, -25px) scale(1.1);
+  box-shadow: 0 5px 15px rgba(100, 180, 255, 0.3);
+}
 
 /**
  * #testimonials-modal
