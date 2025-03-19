@@ -885,7 +885,6 @@ main {
 
 .timeline .title-wrapper:hover .icon-box ion-icon {
   transform: scale(1.1);
-  color: var(--white-1);
 }
 
 .timeline-list {
