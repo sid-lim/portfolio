@@ -861,6 +861,10 @@ main {
   border-radius: 10px;
 }
 
+img[src*="icon-quote.svg"] {
+  filter: brightness(0) saturate(100%) invert(58%) sepia(83%) saturate(2000%) hue-rotate(188deg) brightness(102%) contrast(101%);
+}
+
 .skill-progress-fill {
   background: var(--text-gradient-yellow);
   height: 100%;
@@ -1476,8 +1480,10 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .modal-avatar-box img { width: 65px; }
 
-  .modal-img-wrapper > img[src*="icon-quote.svg"] {
-    filter: brightness(0) invert(0.7) sepia(1) saturate(3) hue-rotate(190deg);
+  .modal-img-wrapper > img {
+    display: block;
+    flex-grow: 1;
+    width: 35px;
   }
 
   /* clients */
