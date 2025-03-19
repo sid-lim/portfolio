@@ -677,8 +677,9 @@ main {
   background: var(--bg-gradient-onyx);
   border-radius: 14px;
   box-shadow: var(--shadow-1);
+  overflow: visible; /* Ensure content isn't clipped */
+  z-index: 5;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  z-index: 5; /* Add z-index to ensure it stays on top */
 }
 
 .testimonials-item-title { margin-bottom: 7px; }
@@ -700,11 +701,12 @@ main {
   position: relative;
   background: var(--border-gradient-onyx);
   padding: 20px;
-  padding-top: 45px;
   border-radius: 14px;
   box-shadow: var(--shadow-2);
   cursor: pointer;
   z-index: 1;
+  overflow: visible; /* Ensure nothing is clipped on hover */
+  padding-top: 50px; /* Provide more space for the avatar */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition */
 }
 
@@ -731,7 +733,7 @@ main {
 
 /* Animate avatar box on hover */
 .testimonials-item .content-card:hover .testimonials-avatar-box {
-  transform: translate(15px, -28px) scale(1.05); /* Smaller scale and less vertical movement */
+  transform: translate(15px, -25px) scale(1.03); /* Very subtle scale */
   box-shadow: 0 5px 15px rgba(100, 180, 255, 0.3);
 }
 
