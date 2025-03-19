@@ -667,6 +667,7 @@ main {
 .testimonials-item {
   min-width: 100%;
   scroll-snap-align: center;
+  overflow: visible;
 }
 
 .testimonials-avatar-box {
@@ -677,9 +678,9 @@ main {
   background: var(--bg-gradient-onyx);
   border-radius: 14px;
   box-shadow: var(--shadow-1);
-  overflow: visible; /* Ensure content isn't clipped */
-  z-index: 5;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 10; /* Higher z-index to ensure it's above everything */
+  transition: box-shadow 0.3s ease; /* Only animate the shadow, not the position */
+  pointer-events: none; /* This makes the avatar ignore mouse events */
 }
 
 .testimonials-item-title { margin-bottom: 7px; }
@@ -706,8 +707,9 @@ main {
   cursor: pointer;
   z-index: 1;
   overflow: visible; /* Ensure nothing is clipped on hover */
-  padding-top: 50px; /* Provide more space for the avatar */
+  padding-top: 55px; /* Provide more space for the avatar */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition */
+  transform-origin: center bottom;
 }
 
 /* Hover effect for testimonial cards */
@@ -733,7 +735,7 @@ main {
 
 /* Animate avatar box on hover */
 .testimonials-item .content-card:hover .testimonials-avatar-box {
-  transform: translate(15px, -25px) scale(1.03); /* Very subtle scale */
+  /* No transform change at all */
   box-shadow: 0 5px 15px rgba(100, 180, 255, 0.3);
 }
 
@@ -1591,7 +1593,10 @@ textarea.form-input::-webkit-resizer { display: none; }
     border-radius: 20px;
   }
 
-  .testimonials-avatar-box img { width: 80px; }
+  .testimonials-avatar-box img { 
+    width: 80px;
+    border-radius: 10px;
+  }
 
   .testimonials-item-title {
     margin-bottom: 10px;
