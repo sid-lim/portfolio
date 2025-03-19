@@ -541,6 +541,21 @@ main {
   z-index: 1;
 }
 
+.service-item {
+  position: relative;
+  background: var(--border-gradient-onyx);
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: var(--shadow-2);
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(100, 180, 255, 0.2);
+}
+
 .service-item::before {
   content: "";
   position: absolute;
@@ -548,6 +563,20 @@ main {
   background: var(--bg-gradient-jet);
   border-radius: inherit;
   z-index: -1;
+  transition: background 0.3s ease;
+}
+
+.service-item:hover::before {
+  background: linear-gradient(135deg, hsla(210, 100%, 65%, 0.1) 0%, hsla(210, 100%, 65%, 0) 59.86%), hsl(240, 2%, 13%);
+}
+
+/* Add a subtle animation to the icon as well */
+.service-item:hover .service-icon-box img {
+  transform: scale(1.1);
+}
+
+.service-icon-box img {
+  transition: transform 0.3s ease;
 }
 
 .service-icon-box { margin-bottom: 10px; }
