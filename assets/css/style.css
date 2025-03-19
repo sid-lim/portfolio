@@ -1476,10 +1476,8 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .modal-avatar-box img { width: 65px; }
 
-  .modal-img-wrapper > img {
-    display: block;
-    flex-grow: 1;
-    width: 35px;
+  .modal-img-wrapper > img[src*="icon-quote.svg"] {
+    filter: brightness(0) invert(0.7) sepia(1) saturate(3) hue-rotate(190deg);
   }
 
   /* clients */
