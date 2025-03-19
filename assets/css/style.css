@@ -2018,7 +2018,15 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .social-list { justify-content: center; }
 
+  /* Hide testimonials section but preserve functionality */
+  .testimonials {
+    display: none;
+  }
 
+  /* Hide testimonials modal but preserve functionality */
+  .modal-container {
+    display: none !important;
+  }
 
   /**
 	 * RESUME
