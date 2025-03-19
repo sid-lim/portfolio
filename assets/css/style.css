@@ -410,6 +410,50 @@ main {
   gap: 16px;
 }
 
+/* Add transitions to contact items */
+.contact-item {
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: transform 0.3s ease; /* Add transition */
+}
+
+/* Hover effect for contact items */
+.contact-item:hover {
+  transform: translateY(-3px);
+}
+
+/* Add hover effect to icon boxes in contact items */
+.contact-item .icon-box {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-item:hover .icon-box {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(100, 180, 255, 0.2);
+}
+
+/* Enhance social list items */
+.social-item {
+  transition: transform 0.3s ease;
+}
+
+.social-item:hover {
+  transform: translateY(-3px) scale(1.1);
+}
+
+.social-item .social-link {
+  color: var(--light-gray-70);
+  font-size: 18px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-item .social-link:hover { 
+  color: var(--orange-yellow-crayola);
+  transform: scale(1.1);
+}
+
 .contact-info {
   max-width: calc(100% - 46px);
   width: calc(100% - 46px);
