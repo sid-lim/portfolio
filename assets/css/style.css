@@ -866,6 +866,28 @@ main {
   margin-bottom: 25px;
 }
 
+/* Add transitions to timeline icon boxes */
+.timeline .title-wrapper .icon-box {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+/* Hover effect for timeline icon boxes */
+.timeline .title-wrapper:hover .icon-box {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(100, 180, 255, 0.2);
+  background: var(--bg-gradient-yellow-1);
+}
+
+/* Add animation to timeline icons */
+.timeline .title-wrapper .icon-box ion-icon {
+  transition: transform 0.3s ease;
+}
+
+.timeline .title-wrapper:hover .icon-box ion-icon {
+  transform: scale(1.1);
+  color: var(--white-1);
+}
+
 .timeline-list {
   font-size: var(--fs-6);
   margin-left: 45px;
