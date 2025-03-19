@@ -1425,7 +1425,6 @@ textarea.form-input::-webkit-resizer { display: none; }
   }
   
   .service-icon-box img {
-    filter: brightness(0) saturate(100%) invert(58%) sepia(83%) saturate(2000%) hue-rotate(188deg) brightness(102%) contrast(101%);
     width: 40px;
     height: 40px;
     position: relative;
