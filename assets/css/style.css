@@ -208,6 +208,19 @@ article {
 
 .icon-box ion-icon { --ionicon-stroke-width: 35px; }
 
+/* Add this to your style.css file */
+ion-icon {
+  display: inline-block !important;
+  visibility: visible !important;
+  font-size: 18px !important; /* Adjust size as needed */
+  color: var(--orange-yellow-crayola) !important; /* Force the icon color */
+}
+
+.icon-box ion-icon {
+  --ionicon-stroke-width: 35px !important;
+  opacity: 1 !important;
+}
+
 article { display: none; }
 
 article.active {
