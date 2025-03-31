@@ -2031,6 +2031,35 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .social-list { justify-content: center; }
 
+  /* Force ionicons to be visible */
+  ion-icon {
+    display: inline-block !important;
+    opacity: 1 !important;
+    font-size: 18px !important;
+    pointer-events: auto !important;
+    visibility: visible !important;
+  }
+
+  /* Since the icons are correctly loaded but not visible, 
+    ensure they have the right size and color */
+  .icon-box ion-icon {
+    color: var(--orange-yellow-crayola) !important;
+    font-size: 18px !important;
+  }
+
+  /* Ensure social icons are visible */
+  .social-link ion-icon {
+    color: var(--light-gray-70) !important;
+    font-size: 18px !important;
+  }
+
+  /* Give icons more space in their containers */
+  .icon-box {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
   /**
 	 * RESUME
 	 */
