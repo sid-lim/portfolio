@@ -29,7 +29,7 @@
     hsl(0, 0%, 19%) 97%
   );
   --bg-gradient-jet: linear-gradient(
-    to bottom right, 
+    to bottom right,
     hsla(240, 1%, 18%, 0.251) 0%, 
     hsla(240, 2%, 11%, 0) 100%
   ), hsl(240, 2%, 13%);
@@ -2017,16 +2017,6 @@ textarea.form-input::-webkit-resizer { display: none; }
   }
 
   .social-list { justify-content: center; }
-
-  /* Hide testimonials section but preserve functionality */
-  .testimonials {
-    display: none;
-  }
-
-  /* Hide testimonials modal but preserve functionality */
-  .modal-container {
-    display: none !important;
-  }
 
   /**
 	 * RESUME
