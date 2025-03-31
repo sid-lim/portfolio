@@ -955,7 +955,18 @@
   -->
   <script src="./assets/js/script.js"></script>
 
-
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Force redraw of icons
+      setTimeout(function() {
+        const icons = document.querySelectorAll('ion-icon');
+        icons.forEach(icon => {
+          const name = icon.getAttribute('name');
+          icon.setAttribute('name', name);
+        });
+      }, 500);
+    });
+  </script>
 
 </body>
 
