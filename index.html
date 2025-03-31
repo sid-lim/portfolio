@@ -957,14 +957,23 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Force redraw of icons
+      console.log('DOM loaded');
+      
       setTimeout(function() {
         const icons = document.querySelectorAll('ion-icon');
-        icons.forEach(icon => {
-          const name = icon.getAttribute('name');
-          icon.setAttribute('name', name);
+        console.log('Found', icons.length, 'ionicons');
+        
+        icons.forEach((icon, index) => {
+          console.log('Icon', index, 'name:', icon.getAttribute('name'), 'rendered:', !!icon.shadowRoot);
         });
-      }, 500);
+        
+        if (window.customElements) {
+          console.log('Custom elements supported');
+          console.log('Ionicon defined:', !!window.customElements.get('ion-icon'));
+        } else {
+          console.log('Custom elements NOT supported in this browser');
+        }
+      }, 1000);
     });
   </script>
 
