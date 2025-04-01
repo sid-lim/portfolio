@@ -23,14 +23,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <script type="module">
-    import { defineCustomElements } from 'https://cdn.jsdelivr.net/npm/@ionic/core/loader/index.es2017.js';
-    defineCustomElements();
-  </script>
-  <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
 </head>
 
 <body>
@@ -575,7 +567,7 @@
                 Download my complete resume with detailed experience, skills, and certifications.
               </p>
               
-              <a href="./assets/files/resume.pdf" download class="contact-link" style="color: var(--orange-yellow-crayola); display: flex; align-items: center; margin-top: 10px;">
+              <a href="./assets/files/Resume.pdf" download class="contact-link" style="color: var(--orange-yellow-crayola); display: flex; align-items: center; margin-top: 10px;">
                 <ion-icon name="document-text-outline" style="margin-right: 8px;"></ion-icon>
                 Download Resume (PDF)
               </a>
@@ -955,27 +947,11 @@
   -->
   <script src="./assets/js/script.js"></script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      console.log('DOM loaded');
-      
-      setTimeout(function() {
-        const icons = document.querySelectorAll('ion-icon');
-        console.log('Found', icons.length, 'ionicons');
-        
-        icons.forEach((icon, index) => {
-          console.log('Icon', index, 'name:', icon.getAttribute('name'), 'rendered:', !!icon.shadowRoot);
-        });
-        
-        if (window.customElements) {
-          console.log('Custom elements supported');
-          console.log('Ionicon defined:', !!window.customElements.get('ion-icon'));
-        } else {
-          console.log('Custom elements NOT supported in this browser');
-        }
-      }, 1000);
-    });
-  </script>
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </body>
 
