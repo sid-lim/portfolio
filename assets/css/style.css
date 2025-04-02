@@ -35,13 +35,13 @@
   ), hsl(240, 2%, 13%);
   --bg-gradient-yellow-1: linear-gradient(
     to bottom right, 
-    hsl(45, 100%, 71%) 0%, 
-    hsla(36, 100%, 69%, 0) 50%
+    hsl(210, 100%, 65%) 0%, 
+    hsla(210, 100%, 65%, 0) 50%
   );
   --bg-gradient-yellow-2: linear-gradient(
     135deg, 
-    hsla(45, 100%, 71%, 0.251) 0%, 
-    hsla(35, 100%, 68%, 0) 59.86%
+    hsla(210, 100%, 65%, 0.251) 0%, 
+    hsla(210, 100%, 65%, 0) 59.86%
   ), hsl(240, 2%, 13%);
   --border-gradient-onyx: linear-gradient(
     to bottom right, 
@@ -50,8 +50,8 @@
   );
   --text-gradient-yellow: linear-gradient(
     to right, 
-    hsl(45, 100%, 72%), 
-    hsl(35, 100%, 68%)
+    hsl(210, 100%, 65%), 
+    hsl(210, 70%, 55%)
   );
 
   /* solid */
@@ -63,8 +63,8 @@
   --smoky-black: hsl(0, 0%, 7%);
   --white-1: hsl(0, 0%, 100%);
   --white-2: hsl(0, 0%, 98%);
-  --orange-yellow-crayola: hsl(45, 100%, 72%);
-  --vegas-gold: hsl(45, 54%, 58%);
+  --orange-yellow-crayola: hsl(210, 100%, 65%); /* Bright blue */
+  --vegas-gold: hsl(210, 70%, 55%); /* Slightly darker blue */
   --light-gray: hsl(0, 0%, 84%);
   --light-gray-70: hsla(0, 0%, 84%, 0.7);
   --bittersweet-shimmer: hsl(0, 43%, 51%);
@@ -410,6 +410,50 @@ main {
   gap: 16px;
 }
 
+/* Add transitions to contact items */
+.contact-item {
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: transform 0.3s ease; /* Add transition */
+}
+
+/* Hover effect for contact items */
+.contact-item:hover {
+  transform: translateY(-3px);
+}
+
+/* Add hover effect to icon boxes in contact items */
+.contact-item .icon-box {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-item:hover .icon-box {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(100, 180, 255, 0.2);
+}
+
+/* Enhance social list items */
+.social-item {
+  transition: transform 0.3s ease;
+}
+
+.social-item:hover {
+  transform: translateY(-3px) scale(1.1);
+}
+
+.social-item .social-link {
+  color: var(--light-gray-70);
+  font-size: 18px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-item .social-link:hover { 
+  color: var(--orange-yellow-crayola);
+  transform: scale(1.1);
+}
+
 .contact-info {
   max-width: calc(100% - 46px);
   width: calc(100% - 46px);
@@ -522,6 +566,16 @@ main {
   gap: 20px;
 }
 
+.avatar-box img {
+  border-radius: 20px; /* For smaller screens */
+}
+
+@media (min-width: 580px) {
+  .avatar-box img {
+    border-radius: 30px; /* For larger screens, matching parent container */
+  }
+}
+
 .service-item {
   position: relative;
   background: var(--border-gradient-onyx);
@@ -531,6 +585,21 @@ main {
   z-index: 1;
 }
 
+.service-item {
+  position: relative;
+  background: var(--border-gradient-onyx);
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: var(--shadow-2);
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(100, 180, 255, 0.2);
+}
+
 .service-item::before {
   content: "";
   position: absolute;
@@ -538,11 +607,28 @@ main {
   background: var(--bg-gradient-jet);
   border-radius: inherit;
   z-index: -1;
+  transition: background 0.3s ease;
+}
+
+.service-item:hover::before {
+  background: linear-gradient(135deg, hsla(210, 100%, 65%, 0.1) 0%, hsla(210, 100%, 65%, 0) 59.86%), hsl(240, 2%, 13%);
+}
+
+/* Add a subtle animation to the icon as well */
+.service-item:hover .service-icon-box img {
+  transform: scale(1.1);
+}
+
+.service-icon-box img {
+  transition: transform 0.3s ease;
 }
 
 .service-icon-box { margin-bottom: 10px; }
 
-.service-icon-box img { margin: auto; }
+.service-icon-box img { 
+  margin: auto; 
+  filter: brightness(0) saturate(100%) invert(58%) sepia(83%) saturate(2000%) hue-rotate(188deg) brightness(102%) contrast(101%);
+}
 
 .service-content-box { text-align: center; }
 
@@ -780,6 +866,27 @@ main {
   margin-bottom: 25px;
 }
 
+/* Add transitions to timeline icon boxes */
+.timeline .title-wrapper .icon-box {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+/* Hover effect for timeline icon boxes */
+.timeline .title-wrapper:hover .icon-box {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(100, 180, 255, 0.2);
+  background: var(--bg-gradient-yellow-1);
+}
+
+/* Add animation to timeline icons */
+.timeline .title-wrapper .icon-box ion-icon {
+  transition: transform 0.3s ease;
+}
+
+.timeline .title-wrapper:hover .icon-box ion-icon {
+  transform: scale(1.1);
+}
+
 .timeline-list {
   font-size: var(--fs-6);
   margin-left: 45px;
@@ -861,6 +968,10 @@ main {
   border-radius: 10px;
 }
 
+img[src*="icon-quote.svg"] {
+  filter: brightness(0) saturate(100%) invert(58%) sepia(83%) saturate(2000%) hue-rotate(188deg) brightness(102%) contrast(101%);
+}
+
 .skill-progress-fill {
   background: var(--text-gradient-yellow);
   height: 100%;
@@ -868,7 +979,33 @@ main {
 }
 
 
+.resume-actions {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
 
+.resume-download-btn {
+  margin: 0 auto;
+  padding: 15px 25px;
+  max-width: 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resume-download-btn:hover {
+  background: var(--bg-gradient-yellow-1);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(100, 180, 255, 0.2);
+}
+
+.resume-download-btn:hover::before {
+  background: var(--bg-gradient-yellow-2);
+}
+
+.resume-download-btn ion-icon {
+  font-size: 18px;
+  --ionicon-stroke-width: 40px;
+}
 
 
 /*-----------------------------------*\
@@ -1400,8 +1537,18 @@ textarea.form-input::-webkit-resizer { display: none; }
   }
 
   .service-icon-box {
-    margin-bottom: 0;
-    margin-top: 5px;
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .service-icon-box img {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    z-index: 1;
   }
 
   .service-content-box { text-align: left; }
@@ -1871,7 +2018,15 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .social-list { justify-content: center; }
 
+  /* Hide testimonials section but preserve functionality */
+  .testimonials {
+    display: none;
+  }
 
+  /* Hide testimonials modal but preserve functionality */
+  .modal-container {
+    display: none !important;
+  }
 
   /**
 	 * RESUME
