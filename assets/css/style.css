@@ -2022,14 +2022,52 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .social-list { justify-content: center; }
 
-  /* Hide testimonials section but preserve functionality */
-  .testimonials {
+  .testimonials,
+  section.testimonials {
     display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
   }
-
-  /* Hide testimonials modal but preserve functionality */
-  .modal-container {
+  
+  .modal-container,
+  div.modal-container,
+  [data-modal-container] {
     display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    opacity: 0 !important;
+  }
+  
+  /* Specifically hide on mobile and smaller screens */
+  @media (max-width: 767px) {
+    .testimonials,
+    section.testimonials,
+    .about .testimonials {
+      display: none !important;
+      visibility: hidden !important;
+      height: 0 !important;
+      width: 0 !important;
+      position: absolute !important;
+      left: -9999px !important;
+      pointer-events: none !important;
+    }
+  }
+  
+  /* Ensure testimonials don't appear on tablet */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .testimonials,
+    section.testimonials,
+    .about .testimonials {
+      display: none !important;
+      visibility: hidden !important;
+      height: 0 !important;
+      width: 0 !important;
+      position: absolute !important;
+      left: -9999px !important;
+      pointer-events: none !important;
+    }
   }
 
   /* Optional - Fix for unpkg CDN issues by adding fallback colors for icons */
@@ -2051,41 +2089,5 @@ textarea.form-input::-webkit-resizer { display: none; }
 	 */
 
   .timeline-text { max-width: 700px; }
-
-  section.testimonials,
-  .testimonials,
-  article .testimonials,
-  .about .testimonials,
-  main .testimonials {
-    display: none !important;
-    visibility: hidden !important;
-    height: 0 !important;
-    width: 0 !important;
-    overflow: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-    position: absolute !important;
-    left: -9999px !important;
-  }
   
-  /* Force hide modal container on ALL devices */
-  .modal-container,
-  div.modal-container,
-  [data-modal-container],
-  body .modal-container,
-  main .modal-container {
-    display: none !important;
-    visibility: hidden !important;
-    height: 0 !important;
-    opacity: 0 !important;
-  }
-  
-  /* Force hide overlay */
-  .overlay,
-  [data-overlay],
-  div.overlay {
-    display: none !important;
-    visibility: hidden !important;
-  }
-
 }
