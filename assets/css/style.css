@@ -206,7 +206,11 @@ article {
   z-index: -1;
 }
 
-.icon-box ion-icon { --ionicon-stroke-width: 35px; }
+.icon-box ion-icon {
+  font-size: 16px;
+  color: var(--orange-yellow-crayola);
+  --ionicon-stroke-width: 35px;
+}
 
 article { display: none; }
 
@@ -2020,12 +2024,26 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   /* Hide testimonials section but preserve functionality */
   .testimonials {
-    display: none;
+    display: none !important;
   }
 
   /* Hide testimonials modal but preserve functionality */
   .modal-container {
     display: none !important;
+  }
+
+  /* Optional - Fix for unpkg CDN issues by adding fallback colors for icons */
+  /* Add these classes if your icons still don't appear after fixing the CDN */
+  .navbar-link ion-icon,
+  .info_more-btn ion-icon,
+  .contact-item .icon-box ion-icon,
+  .social-item .social-link ion-icon,
+  .timeline .title-wrapper .icon-box ion-icon,
+  .form-btn ion-icon {
+    /* Ensure icon containers have sizing even if icons fail to load */
+    min-width: 1em;
+    min-height: 1em;
+    display: inline-block;
   }
 
   /**
