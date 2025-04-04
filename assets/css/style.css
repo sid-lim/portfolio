@@ -2101,3 +2101,23 @@ textarea.form-input::-webkit-resizer { display: none; }
   .timeline-text { max-width: 700px; }
   
 }
+@media (max-width: 1023px) {
+  .testimonials {
+    display: none;
+  }
+  
+  .modal-container {
+    display: none;
+  }
+}
+
+/* Maintain existing desktop hiding behavior */
+@media (min-width: 1250px) {
+  .testimonials {
+    display: none;
+  }
+  
+  .modal-container {
+    display: none !important;
+  }
+}
