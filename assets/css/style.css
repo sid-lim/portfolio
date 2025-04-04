@@ -1915,7 +1915,17 @@ textarea.form-input::-webkit-resizer { display: none; }
  * responsive larger than 1250px screen
  */
 
-@media (min-width: 1250px) {
+ @media (min-width: 1250px) {
+  /* Hide testimonials section but preserve functionality */
+  .testimonials {
+    display: none;
+  }
+
+  /* Hide testimonials modal but preserve functionality */
+  .modal-container {
+    display: none !important;
+  }
+
 
   /**
    * RESET
