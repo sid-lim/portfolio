@@ -2052,4 +2052,40 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .timeline-text { max-width: 700px; }
 
+  section.testimonials,
+  .testimonials,
+  article .testimonials,
+  .about .testimonials,
+  main .testimonials {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    position: absolute !important;
+    left: -9999px !important;
+  }
+  
+  /* Force hide modal container on ALL devices */
+  .modal-container,
+  div.modal-container,
+  [data-modal-container],
+  body .modal-container,
+  main .modal-container {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    opacity: 0 !important;
+  }
+  
+  /* Force hide overlay */
+  .overlay,
+  [data-overlay],
+  div.overlay {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
 }
