@@ -14,9 +14,9 @@ const EDUCATION = [
 
 const CERTIFICATIONS = [
   {
-    title: "Databricks Certified Data Engineer Associate",
-    period: "2025",
-    text: "Databricks",
+    title: "STSI® Yellow Belt Training",
+    period: "2026",
+    text: "Systems Thinking Standards Institute",
   },
   {
     title: "Databricks Certified Generative AI Engineer Associate",
@@ -24,9 +24,9 @@ const CERTIFICATIONS = [
     text: "Databricks",
   },
   {
-    title: "STSI® Yellow Belt Training",
-    period: "2026",
-    text: "Systems Thinking Standards Institute",
+    title: "Databricks Certified Data Engineer Associate",
+    period: "2025",
+    text: "Databricks",
   },
   {
     title: "PC Pro",
