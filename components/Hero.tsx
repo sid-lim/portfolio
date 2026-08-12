@@ -7,11 +7,13 @@ import { GRADIENT, SITE } from "@/lib/constants";
 
 const ROLES = ["Data Engineer", "Pipeline Architect", "Data Product Lead", "Analytics Engineer"];
 const ROLE_INTERVAL = 2000;
+const VIDEO_SRC = "https://stream.mux.com/Gs3wZfrtz6ZfqZqQ02c02Z7lugV00FGZvRpcqFTel66r3g.m3u8";
 
 const article = (word: string) => (/^[aeiou]/i.test(word) ? "An" : "A");
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [roleIndex, setRoleIndex] = useState(0);
 
   useEffect(() => {
@@ -19,6 +21,33 @@ export default function Hero() {
       setRoleIndex((i) => (i + 1) % ROLES.length);
     }, ROLE_INTERVAL);
     return () => clearInterval(id);
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (video.canPlayType("application/vnd.apple.mpegurl")) {
+      video.src = VIDEO_SRC;
+      return;
+    }
+
+    let hls: import("hls.js").default | undefined;
+    let cancelled = false;
+
+    import("hls.js").then(({ default: Hls }) => {
+      if (cancelled) return;
+      if (Hls.isSupported()) {
+        hls = new Hls();
+        hls.loadSource(VIDEO_SRC);
+        hls.attachMedia(video);
+      }
+    });
+
+    return () => {
+      cancelled = true;
+      hls?.destroy();
+    };
   }, []);
 
   useEffect(() => {
@@ -40,14 +69,13 @@ export default function Hero() {
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
     >
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(78,133,191,0.14),transparent_60%)]" />
-        <div
-          className="absolute inset-0 opacity-[0.12]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(245,245,245,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(245,245,245,0.08) 1px, transparent 1px)",
-            backgroundSize: "48px 48px",
-          }}
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute top-1/2 left-1/2 min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover"
         />
         <div className="absolute inset-0 bg-black/20" />
         <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-bg to-transparent" />

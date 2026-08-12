@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import LoadingScreen from "./LoadingScreen";
+import ScrollPageNav from "./ScrollPageNav";
 
 export default function AppWrapper({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -12,6 +13,7 @@ export default function AppWrapper({ children }: { children: React.ReactNode }) 
       <AnimatePresence mode="wait">
         {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
       </AnimatePresence>
+      <ScrollPageNav enabled={!isLoading} />
       <div style={{ opacity: isLoading ? 0 : 1, transition: "opacity 0.5s ease-out" }}>
         {children}
       </div>

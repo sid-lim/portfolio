@@ -65,13 +65,18 @@ export default function ResumePage() {
         <p className="text-sm text-muted leading-relaxed mb-6 max-w-2xl">
           Download my complete resume with detailed experience, projects, and certifications.
         </p>
-        <a href={`${BASE_PATH}/files/Sid-Lim-Resume.pdf`} download className="group relative inline-block rounded-full">
+        <a
+          href={`${BASE_PATH}/files/Sid-Lim-Resume.pdf`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative inline-block rounded-full"
+        >
           <span
             className="absolute -inset-[2px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             style={{ background: GRADIENT }}
           />
           <span className="relative block px-7 py-3.5 bg-text text-bg text-sm rounded-full transition-transform duration-300 group-hover:scale-105">
-            Download Resume (PDF)
+            View Resume (PDF)
           </span>
         </a>
       </section>
