@@ -35,25 +35,41 @@ export default function Hero() {
 
     const play = () => video.play().catch(() => {});
 
-    if (video.canPlayType("application/vnd.apple.mpegurl")) {
-      video.src = VIDEO_SRC;
-      video.addEventListener("loadedmetadata", play);
-      play();
-      return () => video.removeEventListener("loadedmetadata", play);
-    }
-
     let hls: import("hls.js").default | undefined;
     let cancelled = false;
 
-    import("hls.js").then(({ default: Hls }) => {
-      if (cancelled) return;
-      if (Hls.isSupported()) {
-        hls = new Hls();
-        hls.loadSource(VIDEO_SRC);
-        hls.attachMedia(video);
-        hls.on(Hls.Events.MANIFEST_PARSED, play);
-      }
-    });
+    const loadWithHls = () => {
+      import("hls.js").then(({ default: Hls }) => {
+        if (cancelled) return;
+        if (Hls.isSupported()) {
+          hls = new Hls();
+          hls.loadSource(VIDEO_SRC);
+          hls.attachMedia(video);
+          hls.on(Hls.Events.MANIFEST_PARSED, play);
+        }
+      });
+    };
+
+    if (video.canPlayType("application/vnd.apple.mpegurl")) {
+      // Some browsers (e.g. recent Chrome) report "maybe" here but fail to
+      // actually decode the stream, so fall back to hls.js on error.
+      const onError = () => {
+        video.removeEventListener("error", onError);
+        video.removeEventListener("loadedmetadata", play);
+        video.removeAttribute("src");
+        loadWithHls();
+      };
+      video.addEventListener("error", onError, { once: true });
+      video.addEventListener("loadedmetadata", play);
+      video.src = VIDEO_SRC;
+      play();
+      return () => {
+        video.removeEventListener("error", onError);
+        video.removeEventListener("loadedmetadata", play);
+      };
+    }
+
+    loadWithHls();
 
     return () => {
       cancelled = true;
