@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
-import Link from "next/link";
 import { GRADIENT, SITE } from "@/lib/constants";
 
 const ROLES = ["Data Engineer", "Pipeline Architect", "Data Product Lead", "Analytics Engineer"];
@@ -92,6 +91,7 @@ export default function Hero() {
 
   return (
     <section
+      id="home"
       ref={containerRef}
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
     >
@@ -131,7 +131,7 @@ export default function Hero() {
         </p>
 
         <div className="blur-in flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href="/resume" className="group relative rounded-full">
+          <a href="#resume" className="group relative rounded-full">
             <span
               className="absolute -inset-[2px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               style={{ background: GRADIENT }}
@@ -139,7 +139,7 @@ export default function Hero() {
             <span className="relative block px-7 py-3.5 bg-text text-bg text-sm rounded-full transition-transform duration-300 group-hover:scale-105">
               View Resume
             </span>
-          </Link>
+          </a>
 
           <a href={`mailto:${SITE.email}`} className="group relative rounded-full">
             <span
@@ -153,12 +153,17 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-8 flex flex-col items-center gap-3 z-10">
-        <span className="text-xs text-muted uppercase tracking-[0.2em]">Scroll</span>
+      <a
+        href="#about"
+        className="absolute bottom-8 flex flex-col items-center gap-3 z-10 group"
+      >
+        <span className="text-xs text-muted uppercase tracking-[0.2em] transition-colors group-hover:text-text">
+          Scroll
+        </span>
         <div className="relative w-px h-10 bg-stroke overflow-hidden">
           <span className="absolute left-1/2 -translate-x-1/2 top-0 w-1.5 h-1.5 rounded-full bg-text animate-scroll-dot" />
         </div>
-      </div>
+      </a>
     </section>
   );
 }

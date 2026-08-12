@@ -2,26 +2,43 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { BASE_PATH, GRADIENT, SITE } from "@/lib/constants";
 
 const LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/resume", label: "Resume" },
-  { href: "/contact", label: "Contact" },
+  { id: "home", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "resume", label: "Resume" },
+  { id: "contact", label: "Contact" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const pathname = usePathname();
+  const [activeId, setActiveId] = useState("home");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 100);
     onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const sections = LINKS.map((link) => document.getElementById(link.id)).filter(
+      (el): el is HTMLElement => el !== null
+    );
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveId(entry.target.id);
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -31,7 +48,7 @@ export default function Navbar() {
           scrolled ? "shadow-md shadow-black/10" : ""
         }`}
       >
-        <Link href="/" aria-label="Home" className="group relative w-9 h-9 shrink-0 rounded-full p-[2px]">
+        <a href="#home" aria-label="Home" className="group relative w-9 h-9 shrink-0 rounded-full p-[2px]">
           <span
             className="absolute inset-0 rounded-full transition-transform duration-500 group-hover:rotate-180"
             style={{ background: GRADIENT }}
@@ -46,22 +63,22 @@ export default function Navbar() {
               className="h-full w-full rounded-full object-cover transition-transform duration-300 group-hover:scale-110"
             />
           </span>
-        </Link>
+        </a>
 
         <div className="hidden sm:block w-px h-5 bg-stroke mx-1" />
 
         {LINKS.map((link) => {
-          const active = pathname === link.href;
+          const active = activeId === link.id;
           return (
-            <Link
-              key={link.href}
-              href={link.href}
+            <a
+              key={link.id}
+              href={`#${link.id}`}
               className={`text-xs sm:text-sm rounded-full px-3 sm:px-4 py-1.5 sm:py-2 transition-colors ${
                 active ? "text-text bg-stroke/50" : "text-muted hover:text-text hover:bg-stroke/50"
               }`}
             >
               {link.label}
-            </Link>
+            </a>
           );
         })}
 
