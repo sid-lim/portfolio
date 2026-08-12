@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { GRADIENT, SITE } from "@/lib/constants";
 
-const ROLES = ["Data Engineer", "Pipeline Architect", "Data Product Lead", "Analytics Engineer"];
+const ROLES = ["Data Engineer", "AI Engineer", "Data Product Lead", "Web Developer"];
 const ROLE_INTERVAL = 2000;
 const VIDEO_SRC = "https://stream.mux.com/Gs3wZfrtz6ZfqZqQ02c02Z7lugV00FGZvRpcqFTel66r3g.m3u8";
 
@@ -110,7 +110,7 @@ export default function Hero() {
 
       <div className="relative z-10 text-center px-4">
         <p className="blur-in text-xs text-muted uppercase tracking-[0.3em] mb-8">
-          Data Engineering Portfolio
+          Technical Portfolio
         </p>
 
         <h1 className="name-reveal text-6xl md:text-8xl lg:text-9xl font-display italic leading-[0.9] tracking-tight text-text mb-6">
