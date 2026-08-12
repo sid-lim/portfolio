@@ -27,9 +27,19 @@ export default function Hero() {
     const video = videoRef.current;
     if (!video) return;
 
+    // React doesn't reliably write the `muted` attribute into the
+    // server-rendered HTML, so browsers can block autoplay before
+    // hydration runs. Set it imperatively and kick off playback ourselves.
+    video.muted = true;
+    video.defaultMuted = true;
+
+    const play = () => video.play().catch(() => {});
+
     if (video.canPlayType("application/vnd.apple.mpegurl")) {
       video.src = VIDEO_SRC;
-      return;
+      video.addEventListener("loadedmetadata", play);
+      play();
+      return () => video.removeEventListener("loadedmetadata", play);
     }
 
     let hls: import("hls.js").default | undefined;
@@ -41,6 +51,7 @@ export default function Hero() {
         hls = new Hls();
         hls.loadSource(VIDEO_SRC);
         hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, play);
       }
     });
 

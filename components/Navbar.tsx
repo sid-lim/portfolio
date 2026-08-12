@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { GRADIENT, SITE } from "@/lib/constants";
+import { BASE_PATH, GRADIENT, SITE } from "@/lib/constants";
 
 const LINKS = [
   { href: "/", label: "Home" },
@@ -35,10 +36,15 @@ export default function Navbar() {
             className="absolute inset-0 rounded-full transition-transform duration-500 group-hover:rotate-180"
             style={{ background: GRADIENT }}
           />
-          <span className="relative flex h-full w-full items-center justify-center rounded-full bg-bg">
-            <span className="text-[13px] font-display italic tracking-tighter transition-transform duration-300 group-hover:scale-110">
-              SL
-            </span>
+          <span className="relative flex h-full w-full items-center justify-center rounded-full bg-bg overflow-hidden">
+            <Image
+              src={`${BASE_PATH}/images/avatar.png`}
+              alt={SITE.name}
+              width={36}
+              height={36}
+              priority
+              className="h-full w-full rounded-full object-cover transition-transform duration-300 group-hover:scale-110"
+            />
           </span>
         </Link>
 

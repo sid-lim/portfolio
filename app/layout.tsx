@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import AppWrapper from "@/components/AppWrapper";
-import Navbar from "@/components/Navbar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -28,10 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" data-theme="dark" className={`${inter.variable} ${instrumentSerif.variable}`}>
       <body className="bg-bg text-text font-body antialiased">
-        <AppWrapper>
-          <Navbar />
-          {children}
-        </AppWrapper>
+        <AppWrapper>{children}</AppWrapper>
       </body>
     </html>
   );
