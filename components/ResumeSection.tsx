@@ -23,6 +23,16 @@ const CERTIFICATIONS = [
     period: "2025",
     text: "Databricks",
   },
+  {
+    title: "STSI® Yellow Belt Training",
+    period: "2026",
+    text: "Systems Thinking Standards Institute",
+  },
+  {
+    title: "PC Pro",
+    period: "2023",
+    text: "TestOut Corporation",
+  },
 ];
 
 const EXPERIENCE = [
