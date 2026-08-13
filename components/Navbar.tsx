@@ -7,6 +7,7 @@ import { BASE_PATH, GRADIENT, SITE } from "@/lib/constants";
 const LINKS = [
   { id: "home", label: "Home" },
   { id: "about", label: "About" },
+  { id: "projects", label: "Work" },
   { id: "resume", label: "Resume" },
   { id: "contact", label: "Contact" },
 ];
