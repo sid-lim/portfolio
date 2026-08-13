@@ -82,18 +82,6 @@ export default function Navbar() {
             </a>
           );
         })}
-
-        <div className="w-px h-5 bg-stroke mx-1" />
-
-        <a href={`mailto:${SITE.email}`} className="group relative shrink-0 rounded-full p-[1.5px]">
-          <span
-            className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            style={{ background: GRADIENT }}
-          />
-          <span className="relative flex items-center rounded-full bg-surface px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm text-text whitespace-nowrap">
-            Say hi ↗
-          </span>
-        </a>
       </div>
     </nav>
   );
