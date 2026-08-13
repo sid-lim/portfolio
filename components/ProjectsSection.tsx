@@ -22,30 +22,6 @@ type Project = {
 
 const PROJECTS: Project[] = [
   {
-    title: "Data as a Product Framework",
-    tags: ["Databricks", "Medallion Architecture", "Governance"],
-    text: "Authored the department-wide standard for Data as a Product development and led implementation of medallion architecture across existing and future pipelines for DoD stakeholders.",
-    span: "md:col-span-7",
-  },
-  {
-    title: "Joint Petroleum Enterprise Pipelines",
-    tags: ["Python", "SQL", "ETL / ELT"],
-    text: "Designed and maintained scalable Databricks pipelines that transform complex data into structured formats powering business intelligence across the Joint Petroleum Enterprise.",
-    span: "md:col-span-5",
-  },
-  {
-    title: "Sentiment Analysis Automation",
-    tags: ["Qlik Sense", "Reporting", "Automation"],
-    text: "Built automated reporting workflows that streamlined sentiment analysis processing, increasing throughput by 40%.",
-    span: "md:col-span-5",
-  },
-  {
-    title: "CI/CD & VAULTIS Governance",
-    tags: ["GitLab", "AWS GovCloud", "Data Governance"],
-    text: "Implemented CI/CD workflows across GBFMD data projects and applied the VAULTIS framework to keep every data product visible, trusted, and secure.",
-    span: "md:col-span-7",
-  },
-  {
     title: "RookForm",
     tags: ["React", "TypeScript", "Business"],
     text: "An advanced and luxurious site built for a minimalist clothing brand.",
@@ -81,8 +57,8 @@ export default function ProjectsSection() {
 
       <Reveal delay={0.1}>
         <p className="text-muted leading-relaxed max-w-2xl mb-16">
-          A selection of the data products and pipelines I&apos;ve built, from foundational
-          governance frameworks to the automated workflows that keep stakeholders informed.
+          A selection of projects / businesses that I have helped create as well as an all-in-one
+          professional development application and business internal hub.
         </p>
       </Reveal>
 
@@ -98,7 +74,7 @@ export default function ProjectsSection() {
                   className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   style={{ background: GRADIENT }}
                 />
-                <div className="relative h-full min-h-[280px] rounded-3xl bg-surface border border-stroke group-hover:border-transparent overflow-hidden p-8 flex flex-col justify-between transition-colors duration-300">
+                <div className="relative h-[420px] md:h-[460px] rounded-3xl bg-surface border border-stroke group-hover:border-transparent overflow-hidden p-8 flex flex-col justify-between transition-colors duration-300">
                   {project.video ? (
                     <VideoCutout src={project.video} poster={project.poster} />
                   ) : project.url ? (
@@ -119,7 +95,10 @@ export default function ProjectsSection() {
                   )}
 
                   {media && (
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/10" />
+                    <>
+                      <div className="absolute inset-0 bg-black/55" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/30" />
+                    </>
                   )}
 
                   {link && (
