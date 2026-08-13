@@ -3,7 +3,7 @@
 import Reveal from "./Reveal";
 import VideoCutout from "./VideoCutout";
 import LiveSnapshot from "./LiveSnapshot";
-import { GRADIENT } from "@/lib/constants";
+import { BASE_PATH, GRADIENT } from "@/lib/constants";
 
 type Project = {
   title: string;
@@ -26,21 +26,24 @@ const PROJECTS: Project[] = [
     tags: ["React", "TypeScript", "Business"],
     text: "An advanced and luxurious site built for a minimalist clothing brand.",
     span: "md:col-span-12",
-    url: "https://rookform.com",
+    video: `${BASE_PATH}/videos/project-1.mp4`,
+    href: "https://rookform.com",
   },
   {
     title: "BC Forge AI",
     tags: ["React", "TypeScript", "Agentic AI", "CRM", "Startup"],
     text: "BC Forge AI utilizes an AI integrated workflow to help blue collar businesses generate and maintain leads.",
     span: "md:col-span-12",
-    url: "https://bcforgeai.com",
+    video: `${BASE_PATH}/videos/project-2.mp4`,
+    href: "https://bcforgeai.com",
   },
   {
     title: "UNCOMN ARC",
     tags: ["SQL", "TypeScript", "Data Engineering", "AI"],
     text: "All-in-one solution to an internal professional development dashboard + Agentic AI integrated internal company community hub.",
     span: "md:col-span-12",
-    url: "https://uncomn-arc.vercel.app",
+    video: `${BASE_PATH}/videos/project-3.mp4`,
+    href: "https://uncomn-arc.vercel.app",
   },
 ];
 

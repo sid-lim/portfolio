@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import AppWrapper from "@/components/AppWrapper";
+import { BASE_PATH } from "@/lib/constants";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -21,6 +22,9 @@ export const metadata: Metadata = {
   title: "Sid Lim — Data Engineer",
   description:
     "Portfolio of Sid Lim, a Data Engineer specializing in scalable data pipelines, analytics, and AI/ML integration.",
+  icons: {
+    icon: { url: `${BASE_PATH}/favicon/favicon.png`, type: "image/png" },
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
