@@ -25,21 +25,21 @@ const PROJECTS: Project[] = [
     title: "RookForm",
     tags: ["React", "TypeScript", "Business"],
     text: "An advanced and luxurious site built for a minimalist clothing brand.",
-    span: "md:col-span-4",
+    span: "md:col-span-12",
     url: "https://rookform.com",
   },
   {
     title: "BC Forge AI",
     tags: ["React", "TypeScript", "Agentic AI", "CRM", "Startup"],
     text: "BC Forge AI utilizes an AI integrated workflow to help blue collar businesses generate and maintain leads.",
-    span: "md:col-span-4",
+    span: "md:col-span-12",
     url: "https://bcforgeai.com",
   },
   {
     title: "UNCOMN ARC",
     tags: ["SQL", "TypeScript", "Data Engineering", "AI"],
     text: "All-in-one solution to an internal professional development dashboard + Agentic AI integrated internal company community hub.",
-    span: "md:col-span-4",
+    span: "md:col-span-12",
     url: "https://uncomn-arc.vercel.app",
   },
 ];
@@ -74,7 +74,7 @@ export default function ProjectsSection() {
                   className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   style={{ background: GRADIENT }}
                 />
-                <div className="relative h-[420px] md:h-[460px] rounded-3xl bg-surface border border-stroke group-hover:border-transparent overflow-hidden p-8 flex flex-col justify-between transition-colors duration-300">
+                <div className="relative h-64 md:h-80 rounded-3xl bg-surface border border-stroke group-hover:border-transparent overflow-hidden p-8 flex flex-col justify-between transition-colors duration-300">
                   {project.video ? (
                     <VideoCutout src={project.video} poster={project.poster} />
                   ) : project.url ? (
